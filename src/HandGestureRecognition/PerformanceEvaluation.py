@@ -320,15 +320,15 @@ class CombinationType(Enum):
     UNION > Union
     """
     AIRLOCK = { 
-        "demo1_set1_airlock_1m_right" : r'D:/HandGestures/Test Data/2024-03-20 Tech Demo 1/actual data/mit.astrobee.hand_signals_demo1_delayed/set1 _airlock_1m_right',
-        "demo1_set3_airlock__1m_left" : r'D:/HandGestures/Test Data/2024-03-20 Tech Demo 1/actual data/mit.astrobee.hand_signals_demo1_delayed/set3_airlock__1m_left',
-        "demo2_set1_airlock__1m_right" :  r'D:/HandGestures/Test Data/2024-05-01 Tech Demo 2/set1_airlock__1m_right',
-        "demo3_set3_airlock_1m_right" : r'D:/HandGestures/Test Data/2024-05-21 Tech Demo 3/set3_airlock_1m_right'
+        "demo1_set1_airlock_1m_right" : r'F:/HandGestures/Test Data/2024-03-20 Tech Demo 1/actual data/mit.astrobee.hand_signals_demo1_delayed/set1 _airlock_1m_right',
+        "demo1_set3_airlock__1m_left" : r'F:/HandGestures/Test Data/2024-03-20 Tech Demo 1/actual data/mit.astrobee.hand_signals_demo1_delayed/set3_airlock__1m_left',
+        "demo2_set1_airlock__1m_right" :  r'F:/HandGestures/Test Data/2024-05-01 Tech Demo 2/set1_airlock__1m_right',
+        "demo3_set3_airlock_1m_right" : r'F:/HandGestures/Test Data/2024-05-21 Tech Demo 3/set3_airlock_1m_right'
         }
     AFT =  { 
-        "demo2_set2_aft_0_5m_right" : r'D:/HandGestures/Test Data/2024-05-01 Tech Demo 2/set2_aft_0.5m_right',
-        "demo3_set1_aft_0_5m_right" : r'D:/HandGestures/Test Data/2024-05-21 Tech Demo 3/set1_aft_0.5m_right',
-        "demo3_set2_aft_0_7m_right" : r'D:/HandGestures/Test Data/2024-05-21 Tech Demo 3/set2_aft_0.7m_right',
+        "demo2_set2_aft_0_5m_right" : r'F:/HandGestures/Test Data/2024-05-01 Tech Demo 2/set2_aft_0.5m_right',
+        "demo3_set1_aft_0_5m_right" : r'F:/HandGestures/Test Data/2024-05-21 Tech Demo 3/set1_aft_0.5m_right',
+        "demo3_set2_aft_0_7m_right" : r'F:/HandGestures/Test Data/2024-05-21 Tech Demo 3/set2_aft_0.7m_right',
         }
     DIFFERENCE = {}
     INTERSECTION ={}
@@ -393,8 +393,8 @@ def CombinationFileCompiler(combinationType=CombinationType.DIFFERENCE, combined
     """
     optimizeCombination(customCombinationTypeCollection)
     iss_demo = combinationType.value
-    combined_csv_dir = r'D:/HandGestures/Test Data/' + combinedOutputFolderName.value
-    combined_csv_file = r'D:/HandGestures/Test Data/'+ combinedOutputFolderName.value + r'/hand_landmarks.csv'
+    combined_csv_dir = r'F:/HandGestures/Test Data/' + combinedOutputFolderName.value
+    combined_csv_file = r'F:/HandGestures/Test Data/'+ combinedOutputFolderName.value + r'/hand_landmarks.csv'
 
     return {
         "iss_demo": iss_demo,
@@ -427,11 +427,11 @@ def main():
     # name of the output combination folder
     # CombinationType if not all are needed
     # for example if you need airlock only 
-    # combinationType = CombinationType.DIFFERENCE # refer to CombinationType, but basically DIFFERENCE > ALL, INTERSECTION > INTERSECTION, UNION > UNION
+    combinationType = CombinationType.DIFFERENCE # refer to CombinationType, but basically DIFFERENCE > ALL, INTERSECTION > INTERSECTION, UNION > UNION
     combinedOutputFolder = CombinedOutputFolder.AIR_LOCK_TEST # name of the output combination folder
     customCombinationTypeCollection = [ CombinationType.AIRLOCK ] 
 
-    performanceEvaluator(combinedOutputFolder = combinedOutputFolder, customCombinationTypeCollection = customCombinationTypeCollection)
+    performanceEvaluator(combinationType = combinationType,combinedOutputFolder = combinedOutputFolder, customCombinationTypeCollection = customCombinationTypeCollection)
 
 
 main()
