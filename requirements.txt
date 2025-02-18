@@ -1,0 +1,12 @@
+tensorflow==2.16.1
+mediapipe==0.10.8 # Errors in newer version
+protobuf==4.25.6
+numpy 
+opencv-python 
+pandas 
+scikit-learn 
+tqdm 
+spyder 
+pyvista==0.38.5 # FIXME: Error in polydata for newer versions
+pyvistaqt
+natsort
