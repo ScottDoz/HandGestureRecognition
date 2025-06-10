@@ -10,3 +10,9 @@ spyder
 pyvista==0.38.5 # FIXME: Error in polydata for newer versions
 pyvistaqt
 natsort
+
+flask
+dash
+dash-core-components
+dash-html-components
+dash-canvas
